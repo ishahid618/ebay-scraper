@@ -64,10 +64,17 @@ let browserApi = require("./utils/browserApi.js");
     console.log("length", listReviews.length);
     console.log("done");
     await page.close();
+    await sleep(3*1000);//3000ms = 3 seconds
   }
 
 })();
-
+async function sleep(time){
+return new Promise((resolve,reject)=>{
+	setTimeout(()=>{
+  resolve();
+  },time)
+})
+}
 app.listen(8090, function () {
   console.log("CORS-enabled web server listening on port 80");
 });
